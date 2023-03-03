@@ -31,45 +31,48 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Icon(Icons.restaurant_menu),
-              SizedBox(width: 10),
-              Text('Buku koki')
-            ],
-          ),
+      appBar: AppBar(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Icon(Icons.restaurant_menu),
+            SizedBox(width: 10),
+            Text('Buku koki')
+          ],
         ),
-        body: _isLoading
-            ? const Center(child: CircularProgressIndicator())
-            : ListView.builder(
-                itemCount: _resep.length,
-                itemBuilder: (context, index) {
-                  return GestureDetector(
-                    child: ResepCard(
-                      title: _resep[index].name,
-                      cookTime: _resep[index].totalTime,
-                      rating: _resep[index].rating.toString(),
-                      thumbnailUrl: _resep[index].images,
-                      videoUrl: _resep[index].videoUrl,
-                    ),
-                    onTap: () => {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => DetailResep(
-                              name: _resep[index].name,
-                              totalTime: _resep[index].totalTime,
-                              rating: _resep[index].rating.toString(),
-                              images: _resep[index].images,
-                              description: _resep[index].description,
-                              videoUrl: _resep[index].videoUrl,
-                            ),
-                          ))
-                    },
-                  );
-                },
-              ));
+      ),
+      body: _isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : ListView.builder(
+              itemCount: _resep.length,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  child: ResepCard(
+                    title: _resep[index].name,
+                    cookTime: _resep[index].totalTime,
+                    rating: _resep[index].rating.toString(),
+                    thumbnailUrl: _resep[index].images,
+                    videoUrl: _resep[index].videoUrl,
+                  ),
+                  onTap: () => {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailResep(
+                            name: _resep[index].name,
+                            totalTime: _resep[index].totalTime,
+                            rating: _resep[index].rating.toString(),
+                            images: _resep[index].images,
+                            description: _resep[index].description,
+                            videoUrl: _resep[index].videoUrl,
+                            instructions: _resep[index].instructions,
+                            sections: _resep[index].sections,
+                          ),
+                        ))
+                  },
+                );
+              },
+            ),
+    );
   }
 }
