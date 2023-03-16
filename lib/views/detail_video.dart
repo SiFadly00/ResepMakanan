@@ -38,7 +38,7 @@ class _DetailVideoState extends State<DetailVideo> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
-            Icon(Icons.restaurant_menu),
+            Icon(Icons.play_arrow),
             SizedBox(width: 10),
             Text('Video Tutorial')
           ],

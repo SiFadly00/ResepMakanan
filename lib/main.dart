@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:resep_makanan/views/home.dart';
+import 'package:resep_makanan/views/splashscreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
           primaryColor: Colors.white,
           textTheme:
               const TextTheme(bodyMedium: TextStyle(color: Colors.white))),
-      home: const HomePage(),
+      home: const SplashScreen(),
     );
   }
 }
